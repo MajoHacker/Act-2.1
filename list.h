@@ -223,7 +223,7 @@ T List<T>::last() const {
 // =================================================================
 template <class T>
 T List<T>::get(uint index) const {
-	if (index >= size) {
+	if (index >= this->size) {
 		throw IndexOutOfBounds();
 	}
 
