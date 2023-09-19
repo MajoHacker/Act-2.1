@@ -218,6 +218,9 @@ T List<T>::last() const {
 // =================================================================
 // Returns the element that is in the position indicated by index.
 //
+// Complejidad O(n) ya que el tiempo de ejecución depende directamente
+// del valor del index (indice). Entre más grande mayor tiempo.
+//
 // @returns the element in index
 // @throws IndexOutOfBounds, if index >= size.
 // =================================================================
@@ -277,6 +280,8 @@ void List<T>::push_back(T val) {
 // =================================================================
 // Add an element in index (0 <= index <= size). The element that
 // was in that position is shifted to the right.
+//
+// La complejidad es O(n) en donde n representa el tamaño de la lista
 //
 // @throws IndexOutOfBounds, if index > size.
 // =================================================================
@@ -368,6 +373,8 @@ T List<T>::pop_back() {
 // =================================================================
 // Delete the element found in index (0 <= index <size).
 //
+// La complejidad de esta función de tiempo es O(n) en el peor caso
+//
 // @returns the element that was in index.
 // @throws IndexOutOfBounds, if index >= size.
 // =================================================================
@@ -399,6 +406,8 @@ T List<T>::remove_at(uint index) {
 
 // =================================================================
 // Returns the position of an item in the list.
+//
+// La complejidad de esta función es O(n)
 //
 // @returns the position of an item in the list, -1 otherwise.
 // @throws IndexOutOfBounds, if index >= size.
