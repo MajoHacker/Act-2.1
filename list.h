@@ -225,7 +225,7 @@ template <class T>
 T List<T>::get(uint index) const {
 
 	Node<T> *p = head;
-	if (index >= this->size) {
+	if (index >= size) {
 		throw IndexOutOfBounds();
 	}
 
@@ -282,14 +282,14 @@ void List<T>::push_back(T val) {
 // =================================================================
 template <class T>
 void List<T>::insert_at(T val, uint index) {
-	if (index > this->size) {
+	if (index > size) {
 		throw IndexOutOfBounds();
 	}
 
 	if (index == 0) {
 		push_front(val);
 	} 
-	else if (index == this->size) {
+	else if (index == size) {
 		push_back(val);
 	} 
 	else {
@@ -373,7 +373,7 @@ T List<T>::pop_back() {
 // =================================================================
 template <class T>
 T List<T>::remove_at(uint index) {
-	if (index >= this->size) {
+	if (index >= size) {
 		throw IndexOutOfBounds();
 	}
 
@@ -407,6 +407,10 @@ template <class T>
 long int List<T>::indexOf(T val) const {
 	Node<T> *p = head;
 	long int index = 0;
+
+	if(index >= size) {
+		throw IndexOutOfBounds();
+	}
 
 	while (p != NULL) {
 		if (p->value == val) {
