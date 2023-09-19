@@ -1,8 +1,8 @@
 // =================================================================
 //
 // File: list.h
-// Author:
-// Date:
+// Author: María José Gaytán Gil - A01706616
+// Date: 19 / 09 / 2023
 // 
 // =================================================================
 #ifndef LIST_H
@@ -223,10 +223,16 @@ T List<T>::last() const {
 // =================================================================
 template <class T>
 T List<T>::get(uint index) const {
-	T aux;
+	if (index >= size) {
+		throw IndexOutOfBounds();
+	}
 
-	// TO DO
-	return aux;
+	Node<T> *p = head;
+	for (uint i = 0; i < index; ++i) {
+		p = p->next;
+	}
+
+	return p->value;
 }
 
 // =================================================================
@@ -275,7 +281,25 @@ void List<T>::push_back(T val) {
 // =================================================================
 template <class T>
 void List<T>::insert_at(T val, uint index) {
-	// TO DO
+	if (index > size) {
+		throw IndexOutOfBounds();
+	}
+
+	if (index == 0) {
+		push_front(val);
+	} else if (index == size) {
+		push_back(val);
+	} else {
+		Node<T> *p = head;
+		for (uint i = 0; i < index - 1; ++i) {
+			p = p->next;
+		}
+
+		Node<T> *newNode = new Node<T>(val);
+		newNode->next = p->next;
+		p->next = newNode;
+		size++;
+	}
 }
 
 // =================================================================
@@ -346,9 +370,26 @@ T List<T>::pop_back() {
 // =================================================================
 template <class T>
 T List<T>::remove_at(uint index) {
-	T aux;
-	// TO DO
-	return aux;
+	if (index >= size) {
+		throw IndexOutOfBounds();
+	}
+
+	T val;
+	if (index == 0) {
+		val = pop_front();
+	} else {
+		Node<T> *p = head;
+		for (uint i = 0; i < index - 1; ++i) {
+			p = p->next;
+		}
+
+		Node<T> *temp = p->next;
+		val = temp->value;
+		p->next = temp->next;
+		delete temp;
+		size--;
+	}
+	return val;
 }
 
 // =================================================================
@@ -359,7 +400,17 @@ T List<T>::remove_at(uint index) {
 // =================================================================
 template <class T>
 long int List<T>::indexOf(T val) const {
-	// TO DO
+	Node<T> *p = head;
+	long int index = 0;
+
+	while (p != NULL) {
+		if (p->value == val) {
+			return index;
+		}
+		p = p->next;
+		index++;
+	}
+
 	return -1;
 }
 
