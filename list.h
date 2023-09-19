@@ -228,7 +228,7 @@ T List<T>::get(uint index) const {
 	}
 
 	Node<T> *p = head;
-	for (uint i = 0; i < index; ++i) {
+	for (uint i = 0; i < index; i++) {
 		p = p->next;
 	}
 
@@ -291,7 +291,7 @@ void List<T>::insert_at(T val, uint index) {
 		push_back(val);
 	} else {
 		Node<T> *p = head;
-		for (uint i = 0; i < index - 1; ++i) {
+		for (uint i = 0; i < index - 1; i++) {
 			p = p->next;
 		}
 
@@ -379,7 +379,7 @@ T List<T>::remove_at(uint index) {
 		val = pop_front();
 	} else {
 		Node<T> *p = head;
-		for (uint i = 0; i < index - 1; ++i) {
+		for (uint i = 0; i < index - 1; i++) {
 			p = p->next;
 		}
 
