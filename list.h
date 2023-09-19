@@ -287,9 +287,11 @@ void List<T>::insert_at(T val, uint index) {
 
 	if (index == 0) {
 		push_front(val);
-	} else if (index == size) {
+	} 
+	else if (index == this->size) {
 		push_back(val);
-	} else {
+	} 
+	else {
 		Node<T> *p = head;
 		for (uint i = 0; i < index - 1; i++) {
 			p = p->next;
@@ -370,14 +372,16 @@ T List<T>::pop_back() {
 // =================================================================
 template <class T>
 T List<T>::remove_at(uint index) {
-	if (index >= size) {
+	if (index >= this->size) {
 		throw IndexOutOfBounds();
 	}
 
 	T val;
+	
 	if (index == 0) {
 		val = pop_front();
-	} else {
+	} 
+	else {
 		Node<T> *p = head;
 		for (uint i = 0; i < index - 1; i++) {
 			p = p->next;
