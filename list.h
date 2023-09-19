@@ -281,7 +281,7 @@ void List<T>::push_back(T val) {
 // =================================================================
 template <class T>
 void List<T>::insert_at(T val, uint index) {
-	if (index > size) {
+	if (index > this->size) {
 		throw IndexOutOfBounds();
 	}
 
