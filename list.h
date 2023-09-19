@@ -388,10 +388,10 @@ T List<T>::remove_at(uint index) {
 			p = p->next;
 		}
 
-		Node<T> *temp = p->next;
-		val = temp->value;
-		p->next = temp->next;
-		delete temp;
+		Node<T> *x = p->next;
+		val = x->value;
+		p->next = x->next;
+		delete x;
 		size--;
 	}
 	return val;
